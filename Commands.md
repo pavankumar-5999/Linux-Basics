@@ -59,5 +59,21 @@
 | Give all permissions to all                             | `chmod 777 file.txt`          | `chmod a=rwx file.txt`          | Owner, group, others all have rwx               |
 
 
+# SSH Key Generation Cheat Sheet
 
+| **Scenario / Pattern**            | **Command**                                     | **Notes / Behavior**                                                |
+| --------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------- |
+| Generate RSA 4096-bit key         | `ssh-keygen -t rsa -b 4096`                     | Prompts for file path and passphrase; default path: `~/.ssh/id_rsa` |
+| Specify custom file name          | `ssh-keygen -t rsa -b 4096 -f /path/to/keyname` | Saves key to custom location                                        |
+| Add passphrase for extra security | Enter passphrase when prompted                  | Protects private key; optional but recommended                      |
+| View public key                   | `cat ~/.ssh/id_rsa.pub`                         | Use this to copy into `~/.ssh/authorized_keys` on a server          |
+| Copy public key to remote server  | `ssh-copy-id user@remote_host`                  | Automates adding public key to server for passwordless login        |
+| Test SSH key authentication       | `ssh user@remote_host`                          | Logs in without password if key is properly installed               |
+
+## Notes
+
+* Private key (`id_rsa`) **must be kept secret**.
+* Public key (`id_rsa.pub`) can be shared with servers.
+* RSA 4096-bit is stronger than default 2048-bit.
+* Use `ssh-keygen -t ed25519` for a faster, modern key alternative.
 
