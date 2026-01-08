@@ -23,3 +23,17 @@
 | Check users in a group         | `getent group groupname`                                                                                                                                             | N/A                                                      |
 | Check groups a user belongs to | `groups username`                                                                                                                                                    | N/A                                                      |
 | Check detailed user info       | `id username`                                                                                                                                                        | N/A                                                      |
+
+
+# Linux File Ownership Cheat Sheet
+
+| **Scenario / Pattern**                     | **Command / Example**                      | **Notes / Behavior**                                           |
+| ------------------------------------------ | ------------------------------------------ | -------------------------------------------------------------- |
+| **Change file owner**                      | `chown newowner filename`                  | Changes the owner of a file; keeps group unchanged             |
+| **Change file owner and group**            | `chown newowner:newgroup filename`         | Changes both owner and group at the same time                  |
+| **Change only the group**                  | `chgrp newgroup filename`                  | Alternative to changing only group using `chown`               |
+| **Recursive ownership change**             | `chown -R newowner:newgroup directoryname` | Changes owner/group for directory and all files/subdirectories |
+| **Change ownership of multiple files**     | `chown user1:user1 file1 file2 file3`      | Applies to all listed files                                    |
+| **Change ownership using numeric UID/GID** | `chown 1001:1001 filename`                 | Useful when migrating users/groups between systems             |
+| **Verbose output**                         | `chown -v newowner:newgroup filename`      | Shows which files were changed                                 |
+
