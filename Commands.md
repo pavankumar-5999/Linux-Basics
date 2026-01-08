@@ -37,3 +37,25 @@
 | **Change ownership using numeric UID/GID** | `chown 1001:1001 filename`                 | Useful when migrating users/groups between systems             |
 | **Verbose output**                         | `chown -v newowner:newgroup filename`      | Shows which files were changed                                 |
 
+
+
+# Linux File Permissions Cheat Sheet
+
+| **Scenario / Pattern**                                  | **Absolute Method (Numeric)** | **Symbolic Method**             | **Explanation**                                 |
+| ------------------------------------------------------- | ----------------------------- | ------------------------------- | ----------------------------------------------- |
+| Owner full, group & others read                         | `chmod 744 file.txt`          | `chmod u=rwx,g=r,o=r file.txt`  | Owner can read/write/execute; group/others read |
+| Owner full, group read/execute, others read             | `chmod 754 file.txt`          | `chmod u=rwx,g=rx,o=r file.txt` | Owner full, group read/execute, others read     |
+| Owner read/write, group/others read                     | `chmod 644 file.txt`          | `chmod u=rw,g=r,o=r file.txt`   | Owner can read/write; others read only          |
+| Owner read/write/execute, group read/write, others none | `chmod 760 file.txt`          | `chmod u=rwx,g=rw,o= file.txt`  | Owner full, group rw, others no permissions     |
+| Add execute for owner only                              | N/A                           | `chmod u+x file.txt`            | Adds execute permission to owner only           |
+| Remove write for group                                  | N/A                           | `chmod g-w file.txt`            | Removes write permission from group             |
+| Give all permissions to all                             | `chmod 777 file.txt`          | `chmod a=rwx file.txt`          | Owner, group, others all have rwx               |
+
+## Notes
+
+* Permissions are shown as `rwx` in `ls -l` output.
+* Numeric method: add `r=4`, `w=2`, `x=1` per user/group/others.
+* Symbolic method: `u` = owner, `g` = group, `o` = others, `a` = all.
+* Avoid `777` in production — security risk.
+
+
