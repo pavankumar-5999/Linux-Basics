@@ -12,6 +12,38 @@
 | Non-empty directory         | `mkdir mydata` *(contains files)*        | `rm -r mydata` *(recursive, deletes all contents)*    |
 | Non-empty directory safely  | `mkdir mydata` *(contains files)*        | `rm -ri mydata` *(prompts before deleting each file)* |
 
+**Linux File System Cheatsheet (Tabular Format)**
+
+| Directory | Purpose                                     | Examples / Notes                                                                                                          |
+| --------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| /         | Root directory, top of hierarchy            | All other directories branch from here                                                                                    |
+| /bin      | Essential binaries for all users            | ls, cp, mv                                                                                                                |
+| /sbin     | System administration binaries              | ifconfig, iptables                                                                                                        |
+| /usr      | User programs and utilities                 | /usr/bin (user commands), /usr/sbin (admin commands), /usr/lib (libraries)                                                |
+| /etc      | Configuration files                         | /etc/passwd, /etc/ssh/sshd_config                                                                                         |
+| /home     | User home directories                       | /home/alice, /home/bob                                                                                                    |
+| /root     | Root user home directory                    | Only accessible by root                                                                                                   |
+| /var      | Variable files that change frequently       | /var/log (logs), /var/tmp (temporary files), /var/spool (queues), /var/lib (application state), /var/cache (cached files) |
+| /tmp      | Temporary files cleared on reboot           | /tmp/tmpfile.txt                                                                                                          |
+| /dev      | Device files                                | /dev/sda (disk), /dev/tty (terminal)                                                                                      |
+| /proc     | Virtual filesystem with system/process info | /proc/cpuinfo, /proc/meminfo                                                                                              |
+| /sys      | Kernel and device info (sysfs)              | /sys/class, /sys/block                                                                                                    |
+| /mnt      | Temporary mount points                      | /mnt/usb                                                                                                                  |
+| /media    | Automatically mounted media                 | /media/cdrom, /media/usb                                                                                                  |
+| /lib      | Essential shared libraries                  | /lib/libc.so.6                                                                                                            |
+| /opt      | Optional third-party software               | /opt/google                                                                                                               |
+| /boot     | Bootloader files and kernel                 | /boot/vmlinuz, /boot/grub                                                                                                 |
+| /srv      | Service data                                | /srv/www (web server data)                                                                                                |
+
+**Key Tips:**
+
+* Permissions: `rwx` for owner/group/others
+* Hidden files: start with `.`
+* Paths: absolute (`/path`) vs relative (`path`)
+* Useful commands: `ls -l`, `df -h`, `du -sh <dir>`
+
+
+
 ## User and Group Management
 
 | **Scenario / Pattern**         | **Add / Modify (useradd / adduser / usermod / groupadd)**                                                                                                           | **Delete / Remove (userdel / gpasswd / groupdel)**       |
@@ -77,3 +109,22 @@
 * RSA 4096-bit is stronger than default 2048-bit.
 * Use `ssh-keygen -t ed25519` for a faster, modern key alternative.
 
+**Cron Jobs Cheatsheet (Linux)**
+
+| Feature                   | Description                                                      | Example                                                                        |
+| ------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Definition                | Scheduled tasks in Linux/Unix that run automatically             | Backup scripts, log rotation                                                   |
+| Basic Syntax              | `* * * * * command_to_run` (minute hour day month weekday)       | `0 2 * * * /path/to/script.sh` runs daily at 2:00 AM                           |
+| Every 5 minutes           | `*/5 * * * *`                                                    | `*/5 * * * * /path/to/command`                                                 |
+| Every half hour           | `0,30 * * * *`                                                   | `0,30 * * * * /path/to/command`                                                |
+| Every 2 hours             | `0 */2 * * *`                                                    | `0 */2 * * * /path/to/command`                                                 |
+| Specific day/time         | Run at 9 AM every Monday                                         | `0 9 * * 1 /path/to/command`                                                   |
+| Using user/group          | Change ownership of scripts for cron                             | `chown alice:staff /path/to/script.sh` or `chown 1001:1001 /path/to/script.sh` |
+| List user cron jobs       | Show all jobs for the current user                               | `crontab -l`                                                                   |
+| Edit user cron jobs       | Open editor to modify cron jobs                                  | `crontab -e`                                                                   |
+| Remove all user cron jobs | Delete all cron jobs for the user                                | `crontab -r`                                                                   |
+| System-wide cron jobs     | Stored in `/etc/crontab` or `/etc/cron.d/`                       | Format includes user: `* * * * * username command_to_run`                      |
+| Tips                      | - Ensure scripts have execute permissions (`chmod +x script.sh`) |                                                                                |
+
+* Use absolute paths in cron scripts
+* Check logs: `/var/log/cron` or `journalctl -u cron` | N/A
