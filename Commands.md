@@ -1,3 +1,18 @@
+**Operating System Basics Cheatsheet**
+
+| Term                  | Definition                                                                     | Example / Notes                              |
+| --------------------- | ------------------------------------------------------------------------------ | -------------------------------------------- |
+| OS (Operating System) | Software that manages hardware and software resources, provides user interface | Linux, Windows, macOS                        |
+| Drivers               | Software that allows OS to communicate with hardware devices                   | Printer driver, GPU driver                   |
+| Kernel                | Core component of OS that manages hardware and system resources                | Linux kernel, Windows NT kernel              |
+| Libraries             | Precompiled code that programs can use to perform common tasks                 | libc (C standard library), OpenSSL           |
+| Binaries              | Executable files compiled from source code                                     | /bin/ls, /usr/bin/python                     |
+| Linux Flavours        | Different distributions of Linux with varying features                         | Ubuntu, CentOS, Debian, Fedora, Arch Linux   |
+| Desktop OS            | OS designed for personal computers with GUI                                    | Windows 10, Ubuntu Desktop, macOS            |
+| Server OS             | OS designed for servers, optimized for network services and stability          | CentOS Server, Ubuntu Server, Windows Server |
+
+
+
 # Linux Directory and User/Group Cheat Sheet
 
 ## Directory Management
