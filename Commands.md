@@ -1,4 +1,4 @@
-**Operating System Basics Cheatsheet**
+#Operating System Basics Cheatsheet#
 
 | Term                  | Definition                                                                     | Example / Notes                              |
 | --------------------- | ------------------------------------------------------------------------------ | -------------------------------------------- |
