@@ -107,6 +107,17 @@
 | **Change ownership using numeric UID/GID** | `chown 1001:1001 filename`                 | Useful when migrating users/groups between systems             |
 | **Verbose output**                         | `chown -v newowner:newgroup filename`      | Shows which files were changed                                 |
 
+# File editors and search
+
+| Command                   | Description                                                                               | Usage Example             | Shortcuts / Notes                                                                        |
+| ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------- |
+| `vi`                      | A classic terminal-based text editor. Useful for editing configuration files and scripts. | `vi filename.txt`         | `i` - insert mode, `d` - delete line, `:wq` - save and exit, `:q!` - exit without saving |
+| `nano`                    | A simpler terminal text editor, beginner-friendly.                                        | `nano filename.txt`       | `Ctrl+O` - save, `Ctrl+X` - exit, `Ctrl+K` - cut line, `Ctrl+U` - paste line             |
+| `cat`                     | Displays file content in the terminal. Can also create files with redirection.            | `cat file.txt`            |                                                                                          |
+| `cat > file.txt`          | N/A                                                                                       |                           |                                                                                          |
+| `echo`                    | Prints text to the terminal or writes text to a file.                                     | `echo "Hello"`            |                                                                                          |
+| `echo "Hello" > file.txt` | N/A                                                                                       |                           |                                                                                          |
+| `grep`                    | Searches for patterns in files. Very useful for filtering text.                           | `grep 'pattern' file.txt` | `-i` ignore case, `-r` recursive, `-v` invert match                                      |
 
 
 # Linux File Permissions Cheat Sheet
