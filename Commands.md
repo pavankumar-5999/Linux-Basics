@@ -45,7 +45,10 @@
 | **`ls -l` file type**             | Starts with `l`                                                     | Starts with `-` (regular file)                                                     |
 | **Common use cases**              | Shortcuts, versioned configs, shared paths                          | Backups, preventing accidental deletion                                            |
 
+
 **Golden rule:** Soft links care about **paths**. Hard links care about **inodes**.
+
+
 
 **Linux File System Cheatsheet (Tabular Format)**
 
