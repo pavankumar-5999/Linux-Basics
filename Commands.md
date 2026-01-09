@@ -50,7 +50,7 @@
 
 
 
-#Linux File System Cheatsheet (Tabular Format)
+# Linux File System Cheatsheet (Tabular Format)
 
 | Directory | Purpose                                     | Examples / Notes                                                                                                          |
 | --------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
