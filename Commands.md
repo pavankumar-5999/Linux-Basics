@@ -98,9 +98,12 @@
 | G        | Go to last line                            |
 | gg       | Go to first line                           |
 | :n       | Jump to line n                             |
+| 0        | Go to beginning of the line                |
+| $        | Go to end of the line                      |
 | dd       | Delete current line                        |
 | yy       | Copy (yank) current line                   |
 | p        | Paste the copied/deleted line below cursor |
+
 
 
 ## User and Group Management
