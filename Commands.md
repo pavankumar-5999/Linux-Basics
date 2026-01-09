@@ -164,5 +164,6 @@
 | System-wide cron jobs     | Stored in `/etc/crontab` or `/etc/cron.d/`                       | Format includes user: `* * * * * username command_to_run`                      |
 | Tips                      | - Ensure scripts have execute permissions (`chmod +x script.sh`) |                                                                                |
 
+* When adding or modifying cron jobs, you can use [Crontab Guru](https://crontab.guru) to validate schedules.
 * Use absolute paths in cron scripts
 * Check logs: `/var/log/cron` or `journalctl -u cron` | N/A
