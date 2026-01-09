@@ -27,6 +27,26 @@
 | Non-empty directory         | `mkdir mydata` *(contains files)*        | `rm -r mydata` *(recursive, deletes all contents)*    |
 | Non-empty directory safely  | `mkdir mydata` *(contains files)*        | `rm -ri mydata` *(prompts before deleting each file)* |
 
+
+# Soft Link (Symbolic Link) vs Hard Link
+
+| **Aspect**                        | **Soft Link (Symbolic Link)**                                       | **Hard Link**                                                                      |
+| --------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| **Precise Definition**            | A special file that stores the *path* to a target file or directory | An additional directory entry that points to the *same inode* as the original file |
+| **Inode**                         | Has its **own inode**                                               | Shares the **same inode** with the original file                                   |
+| **What is stored**                | Path (string) to the target                                         | Inode number of the file                                                           |
+| **Create command**                | `ln -s target softlink_name`                                        | `ln target hardlink_name`                                                          |
+| **Delete command**                | `rm softlink_name`                                                  | `rm hardlink_name`                                                                 |
+| **If original file is deleted**   | Link becomes **broken (dangling)**                                  | File remains accessible until last hard link is deleted                            |
+| **When data is actually deleted** | When target file is deleted                                         | When **link count reaches zero**                                                   |
+| **Works across filesystems**      | ✅ Yes                                                               | ❌ No                                                                               |
+| **Can link directories**          | ✅ Yes                                                               | ❌ No (blocked to prevent filesystem loops)                                         |
+| **Link count (`ls -l`)**          | Does **not** affect target link count                               | Increases link count                                                               |
+| **`ls -l` file type**             | Starts with `l`                                                     | Starts with `-` (regular file)                                                     |
+| **Common use cases**              | Shortcuts, versioned configs, shared paths                          | Backups, preventing accidental deletion                                            |
+
+**Golden rule:** Soft links care about **paths**. Hard links care about **inodes**.
+
 **Linux File System Cheatsheet (Tabular Format)**
 
 | Directory | Purpose                                     | Examples / Notes                                                                                                          |
