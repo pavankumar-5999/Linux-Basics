@@ -92,6 +92,16 @@
 | `echo "Hello" > file.txt` | Used to display text or append/write text to a file directly                                                                                       |                           |                                                                                          |
 | `grep`                    | Searches for patterns in files. Very useful for filtering text.                           | `grep 'pattern' file.txt` | `-i` ignore case, `-r` recursive, `-v` invert match                                      |
 
+# vi Shortcuts
+| Shortcut | Action                                     |
+| -------- | ------------------------------------------ |
+| G        | Go to last line                            |
+| gg       | Go to first line                           |
+| :n       | Jump to line n                             |
+| dd       | Delete current line                        |
+| yy       | Copy (yank) current line                   |
+| p        | Paste the copied/deleted line below cursor |
+
 
 ## User and Group Management
 
